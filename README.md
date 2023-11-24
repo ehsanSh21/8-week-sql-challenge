@@ -4,7 +4,7 @@ Case Study #1 - Danny's Diner
 ### What is the 8 Week SQL Challenge?
    The 8-week SQL challenge is a program that helps improve SQL skills through real-world problem-solving. It offers weekly challenges to enhance query writing abilities and provides a supportive community. It's an ideal opportunity to strengthen SQL skills in a structured and engaging manner.
 
-   You can read more abou it here: https://8weeksqlchallenge.com/getting-started/
+   You can read more about it here: https://8weeksqlchallenge.com/getting-started/
 
 ### Project Overview:
 Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
