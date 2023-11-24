@@ -18,6 +18,28 @@ More information about this case study: https://8weeksqlchallenge.com/case-study
 
 ![alt text](https://github.com/ehsanSh21/8-week-sql-challenge/blob/main/Danny's%20Diner.svg)
 
+### Case Study Questions
+
+1. What is the total amount each customer spent at the restaurant?
+
+```sql
+SELECT
+      dannys_diner.sales.customer_id,sum(dannys_diner.menu.price) as total_amount
+FROM dannys_diner.sales
+join dannys_diner.menu
+on dannys_diner.sales.product_id=dannys_diner.menu.product_id
+group by dannys_diner.sales.customer_id;
+```
+
+2. How many days has each customer visited the restaurant?
+
+```sql
+SELECT
+      dannys_diner.sales.customer_id,count(distinct dannys_diner.sales.order_date) as customer_total_days
+FROM dannys_diner.sales
+group by dannys_diner.sales.customer_id;
+```
+
 
 
 
