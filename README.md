@@ -178,15 +178,49 @@ on dannys_diner.sales.customer_id=dannys_diner.members.customer_id
 and dannys_diner.sales.order_date<dannys_diner.members.join_date
 inner join dannys_diner.menu
 on dannys_diner.sales.product_id=dannys_diner.menu.product_id
-group by dannys_diner.sales.customer_id
-;
+group by dannys_diner.sales.customer_id;
+```
+Result:
+
+| customer_id | total_items | total_price |
+| ----------- | ----------- | ----------- |
+| B           | 3           | 40          |
+| A           | 2           | 25          |
+
+9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+
+```sql
+select
+customer_id,
+sum(
+case when product_name='sushi' then price*2*10
+  else price*10 end
+) as point
+from
+dannys_diner.sales
+inner join dannys_diner.menu
+on dannys_diner.sales.product_id=dannys_diner.menu.product_id
+group by customer_id;
 ```
 
+10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
-
-
-
-
+```sql
+select
+dannys_diner.sales.customer_id,
+sum(
+  CASE WHEN order_date <= join_date + INTERVAL '7 days' and order_date >= join_date  THEN price*2*10
+    ELSE price*10 END
+) AS point
+from
+dannys_diner.sales
+inner join dannys_diner.members
+on dannys_diner.sales.customer_id=dannys_diner.members.customer_id
+inner join dannys_diner.menu
+on dannys_diner.sales.product_id=dannys_diner.menu.product_id
+where dannys_diner.sales.order_date < '2021-01-30'
+group by dannys_diner.sales.customer_id;
+```
 
 
 
