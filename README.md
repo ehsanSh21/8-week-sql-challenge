@@ -16,6 +16,7 @@ More information about this case study: https://8weeksqlchallenge.com/case-study
 
 ### Entity Relationship Diagram:
 
+![alt text](https://github.com/ehsanSh21/8-week-sql-challenge/blob/main/Danny's%20Diner.svg)
 
 
 
